@@ -1,0 +1,242 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Exam Buddy AI Design System - Education-focused, clean, trustworthy */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Deep indigo for trust/education */
+    --background: 220 20% 97%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Primary: Deep Indigo */
+    --primary: 234 89% 54%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Soft indigo wash */
+    --secondary: 230 70% 95%;
+    --secondary-foreground: 234 89% 44%;
+
+    /* Muted: Light gray-blue */
+    --muted: 220 14% 92%;
+    --muted-foreground: 220 9% 46%;
+
+    /* Accent: Warm amber for highlights */
+    --accent: 38 92% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 88%;
+    --input: 220 13% 88%;
+    --ring: 234 89% 54%;
+
+    --radius: 0.75rem;
+
+    /* Subject colors */
+    --subject-ds: 142 71% 45%;
+    --subject-cpp: 199 89% 48%;
+    --subject-dbms: 262 83% 58%;
+    --subject-os: 340 82% 52%;
+    --subject-maths: 24 95% 53%;
+    --subject-physics: 210 90% 50%;
+    --subject-chemistry: 160 84% 39%;
+    --subject-biology: 84 81% 44%;
+    --subject-networks: 280 70% 55%;
+
+    /* Custom gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(234 89% 54%) 0%, hsl(250 84% 54%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(38 92% 50%) 0%, hsl(28 92% 50%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(234 89% 54% / 0.08) 0%, transparent 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(234 89% 54% / 0.15);
+    --shadow-card: 0 2px 12px -2px hsl(222 47% 11% / 0.08);
+    --shadow-glow: 0 0 30px -5px hsl(234 89% 54% / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 234 89% 64%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 230 40% 16%;
+    --secondary-foreground: 234 89% 74%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 38 92% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 20%;
+    --input: 217 33% 20%;
+    --ring: 234 89% 64%;
+
+    --subject-ds: 142 71% 55%;
+    --subject-cpp: 199 89% 58%;
+    --subject-dbms: 262 83% 68%;
+    --subject-os: 340 82% 62%;
+    --subject-maths: 24 95% 63%;
+    --subject-physics: 210 90% 60%;
+    --subject-chemistry: 160 84% 49%;
+    --subject-biology: 84 81% 54%;
+    --subject-networks: 280 70% 65%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(234 89% 64%) 0%, hsl(250 84% 64%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(234 89% 64% / 0.12) 0%, transparent 100%);
+    --shadow-soft: 0 4px 20px -4px hsl(234 89% 64% / 0.25);
+    --shadow-glow: 0 0 30px -5px hsl(234 89% 64% / 0.4);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Subject badge colors */
+  .badge-ds {
+    background-color: hsl(var(--subject-ds) / 0.15);
+    color: hsl(var(--subject-ds));
+    border-color: hsl(var(--subject-ds) / 0.3);
+  }
+  
+  .badge-cpp {
+    background-color: hsl(var(--subject-cpp) / 0.15);
+    color: hsl(var(--subject-cpp));
+    border-color: hsl(var(--subject-cpp) / 0.3);
+  }
+  
+  .badge-dbms {
+    background-color: hsl(var(--subject-dbms) / 0.15);
+    color: hsl(var(--subject-dbms));
+    border-color: hsl(var(--subject-dbms) / 0.3);
+  }
+  
+  .badge-os {
+    background-color: hsl(var(--subject-os) / 0.15);
+    color: hsl(var(--subject-os));
+    border-color: hsl(var(--subject-os) / 0.3);
+  }
+  
+  .badge-maths {
+    background-color: hsl(var(--subject-maths) / 0.15);
+    color: hsl(var(--subject-maths));
+    border-color: hsl(var(--subject-maths) / 0.3);
+  }
+
+  .badge-physics {
+    background-color: hsl(var(--subject-physics) / 0.15);
+    color: hsl(var(--subject-physics));
+    border-color: hsl(var(--subject-physics) / 0.3);
+  }
+
+  .badge-chemistry {
+    background-color: hsl(var(--subject-chemistry) / 0.15);
+    color: hsl(var(--subject-chemistry));
+    border-color: hsl(var(--subject-chemistry) / 0.3);
+  }
+
+  .badge-biology {
+    background-color: hsl(var(--subject-biology) / 0.15);
+    color: hsl(var(--subject-biology));
+    border-color: hsl(var(--subject-biology) / 0.3);
+  }
+
+  .badge-networks {
+    background-color: hsl(var(--subject-networks) / 0.15);
+    color: hsl(var(--subject-networks));
+    border-color: hsl(var(--subject-networks) / 0.3);
+  }
+
+  /* Typing animation */
+  @keyframes pulse-dot {
+    0%, 80%, 100% { opacity: 0.3; }
+    40% { opacity: 1; }
+  }
+
+  .typing-dot {
+    animation: pulse-dot 1.4s infinite ease-in-out;
+  }
+
+  .typing-dot:nth-child(1) { animation-delay: 0s; }
+  .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+}
